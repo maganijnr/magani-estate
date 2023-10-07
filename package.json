@@ -1,0 +1,24 @@
+{
+  "name": "magani-estate",
+  "version": "1.0.0",
+  "description": "An api for estate management",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Joshua Magani",
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "^5.4.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "prisma": "^5.4.1"
+  }
+}
