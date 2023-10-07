@@ -2,13 +2,8 @@ import prisma from "../config/prisma.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { errorHandler } from "../utils/error.js";
+import exclude from "../utils/exclude.js";
 
-// Exclude keys from user
-function exclude(user, keys) {
-	return Object.fromEntries(
-		Object.entries(user).filter(([key]) => !keys.includes(key))
-	);
-}
 
 export const registerUser = async (req, res, next) => {
 	const { username, name, email, password } = req.body;
@@ -32,7 +27,7 @@ export const registerUser = async (req, res, next) => {
 		});
 
 		if (usernameExist) {
-			return next(errorHandler(400, "Uername already exists"));
+			return next(errorHandler(400, "Username already exists"));
 		}
 
 		const hashedPassword = bcrypt.hashSync(password, 12);
